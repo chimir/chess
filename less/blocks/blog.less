@@ -1,0 +1,128 @@
+.blog {
+  position: relative;
+  z-index: 1;
+
+  padding-top: 85px;
+  padding-bottom: 145px;
+
+  .container();
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 125px;
+    left: 50px;
+    z-index: -1;
+
+    width: calc(~"100% - 100px");
+    height: 257px;
+
+    background-color: #f6f6f6;
+  }
+}
+
+// http://kizu.ru/fun/rotated-text/
+.blog__title-wpap {
+  position: absolute;
+  top: 190px;
+  left: 80px;
+
+  width: 40px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 22px;
+
+    width: 85px;
+    height: 1px;
+
+    background-color: #000000;
+    transform: rotate(-90deg);
+    transform-origin: 0 0;
+  }
+}
+
+.blog__title {
+  display: inline-block;
+  margin: 0;
+
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 40px;
+  font-family: "Bradobrei", "Georgia", serif;
+  color: #000000;
+  white-space: nowrap;
+
+  transform: translate(0, 100%) rotate(-90deg);
+  transform-origin: 0 0;
+
+  &::after {
+    content: "";
+
+    float: left;
+    margin-top: 100%;
+  }
+}
+
+.blog__teaser-group {
+  display: flex;
+  margin-left: 100px;
+}
+
+.blog__teaser {
+  width: 340px;
+
+  &:first-child {
+    margin-right: 60px;
+  }
+}
+
+.blog__foto {
+  margin-bottom: 25px;
+
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.blog__teaser-title {
+  margin-top: 0;
+  margin-bottom: 30px;
+
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  font-family: "Raleway", "Helvetica", "Arial", sans-serif;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.blog__text {
+  margin-bottom: 35px;
+}
+
+.blog__all {
+  position: absolute;
+  top: 150px;
+  right: 95px;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  font-family: "Raleway", "Helvetica", "Arial", sans-serif;
+  color: #000000;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+
+  border-bottom: 1px solid #000000;
+
+  &::after {
+    content: "→";
+    position: absolute;
+    right: -25px;
+
+    font-size: 16px;
+  }
+}

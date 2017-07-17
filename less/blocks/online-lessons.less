@@ -1,0 +1,192 @@
+.online-lessons {
+  display: flex;
+  padding-top: 50px;
+  padding-bottom: 105px;
+
+  .container();
+}
+
+.online-lessons__title {
+  .element-invisible();
+}
+
+.online-lessons__descr {
+  flex-shrink: 0;
+  width: 50%;
+  margin-top: 35px;
+}
+
+.online-lessons__descr-wrap {
+  position: relative;
+
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  padding: 0 35px 35px;
+
+  background-color: #f6f6f6;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -35px;
+    right: 35px;
+
+    width: 77px;
+    height: 72px;
+
+    background: url("../img/chess-icon.svg") no-repeat;
+  }
+}
+
+.online-lessons__descr-title {
+  position: relative;
+  top: -20px;
+
+  margin-top: 0;
+  margin-bottom: 5px;
+
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 32px;
+  font-family: "Bradobrei", "Georgia", serif;
+  color: #000000;
+}
+
+.online-lessons__descr-subtitle {
+  margin-bottom: 20px;
+
+  font-weight: 700;
+  font-size: 12px;
+  font-family: "Raleway", "Helvetica", "Arial", sans-serif;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.online-lessons__descr-text {
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.online-lessons__descr-btn {
+  position: relative;
+
+  margin-right: 30px;
+  margin-left: 35px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -240px;
+
+    width: 200px;
+    height: 1px;
+
+    background-color: #e9e8e4;
+  }
+}
+
+.online-lessons__order {
+  display: flex;
+  flex-direction: column;
+  margin-left: 45px;
+}
+
+.online-lessons__order-wrap {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-grow: 2;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  padding: 50px;
+
+  background-color: #236899;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+
+  h3 {
+    flex-grow: 2;
+    margin-top: 10px;
+
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    font-family: "Raleway", "Helvetica", "Arial", sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.075em;
+  }
+
+  a {
+    align-self: flex-start;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    background: url("../img/order-bg.jpg") no-repeat;
+    opacity: 0.05;
+  }
+}
+.online-lessons__order-footer {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+}
+
+.online-lessons__order-nav {
+  display: flex;
+
+  .list-style();
+}
+
+.online-lessons__order-item {
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+
+  background-color: #e5e5e5;
+  border-radius: 50%;
+
+  &--is-active {
+    background-color: #000000;
+  }
+}
+
+.online-lessons__order-next {
+  position: relative;
+
+  margin-right: 70px;
+  margin-left: auto;
+
+  font-weight: 700;
+  font-size: 12px;
+  font-family: "Raleway", "Helvetica", "Arial", sans-serif;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -70px;
+
+    width: 50px;
+    height: 1px;
+
+    background-color: #e9e8e4;
+  }
+}

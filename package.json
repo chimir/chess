@@ -7,11 +7,17 @@
     "autoprefixer": "^7.1.2",
     "browser-sync": "^2.18.12",
     "css-mqpacker": "^6.0.1",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-cssmin": "^0.2.0",
+    "gulp-imagemin": "^3.3.0",
     "gulp-less": "^3.3.2",
     "gulp-plumber": "^1.1.0",
-    "gulp-postcss": "^7.0.0"
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ttf2woff": "^1.1.1",
+    "gulp-ttf2woff2": "^2.0.2",
+    "run-sequence": "^2.0.0"
   },
   "scripts": {
     "build": "gulp build",

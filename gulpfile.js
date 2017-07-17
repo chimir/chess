@@ -9,13 +9,26 @@ var autoprefixer = require("autoprefixer");
 var mqpacker = require("css-mqpacker");
 var cssmin = require("gulp-cssmin");
 var rename = require("gulp-rename");
-var svgstore = require("gulp-svgstore");
-var svgmin = require("gulp-svgmin");
 var imagemin = require("gulp-imagemin");
-var jsmin = require("gulp-jsmin");
+
+var ttf2woff = require('gulp-ttf2woff');
+var ttf2woff2 = require('gulp-ttf2woff2');
 
 var server = require("browser-sync").create();
+var run = require("run-sequence");
+var del = require("del");
 
+gulp.task("font", ["font2"], function(){
+  gulp.src(['fonts/*.ttf'])
+    .pipe(ttf2woff())
+    .pipe(gulp.dest('build/fonts/'));
+});
+
+gulp.task("font2", function(){
+  gulp.src(['fonts/*.ttf'])
+    .pipe(ttf2woff2())
+    .pipe(gulp.dest('build/fonts/'));
+});
 
 gulp.task("style", function() {
   gulp.src("less/style.less")
@@ -36,23 +49,6 @@ gulp.task("style", function() {
     .pipe(server.stream());
 });
 
-gulp.task("javascript", function () {
-  gulp.src("js/*.js")
-    .pipe(jsmin())
-    .pipe(rename({suffix: ".min"}))
-    .pipe(gulp.dest("build/js"));
-});
-
-gulp.task("sprite", function() {
-  return gulp.src("build/img/icons/*.svg")
-    .pipe(svgmin())
-    .pipe(svgstore({
-      inlineSvg: true
-    }))
-    .pipe(rename("sprite.svg"))
-    .pipe(gulp.dest("build/img"));
-});
-
 gulp.task("images", function() {
   return gulp.src("build/img/**/*.{png,jpg}")
     .pipe(imagemin([
@@ -61,6 +57,7 @@ gulp.task("images", function() {
     ]))
     .pipe(gulp.dest("build/img"));
 });
+
 
 gulp.task("html:copy", function() {
   return gulp.src("*.html")
@@ -85,12 +82,14 @@ gulp.task("copy", function() {
   return gulp.src([
     "fonts/**/*.{woff,woff2}",
     "img/**",
+    "js/**",
     "*.html"
   ], {
     base: "."
   })
-    .pipe(gulp.dest("build"));
+  .pipe(gulp.dest("build"));
 });
+
 
 gulp.task("clean", function() {
   return del("build");
@@ -101,9 +100,8 @@ gulp.task("build", function(fn) {
     "clean",
     "copy",
     "style",
-    "javascript",
     "images",
-    "sprite",
+    "font",
     fn
   );
 });
